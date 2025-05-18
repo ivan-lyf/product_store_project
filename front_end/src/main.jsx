@@ -1,13 +1,27 @@
-import {ChakraProvider} from "@chakra-ui/react"
-import React from "react"
-import ReactDOM from "react-dom/client"
-import App from "./App.jsx"
-import{ThemeProvider} from "next-themes"
+import * as React from 'react'
+import { ChakraProvider, extendTheme} from '@chakra-ui/react'
+import * as ReactDOM from 'react-dom/client'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+//THEME
+const colors = {
+  brand: {
+    900: '#1a365d',
+    800: '#153e75',
+    700: '#2a69ac',
+  },
+}
+
+const theme = extendTheme({ colors })
+
+const rootElement = document.getElementById('root')
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <ChakraProvider>
-      <App />
+    <ChakraProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ChakraProvider>
-  </React.StrictMode>
-)
+  </React.StrictMode>,
+);
