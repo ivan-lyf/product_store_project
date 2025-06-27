@@ -32,7 +32,7 @@ export const useProductStore = create((set) => ({
 
 
     deleteProduct: async (pid) =>{
-        const res = await fetch(`${BASE_URL}/api/products${pid}`,{
+        const res = await fetch(`${BASE_URL}/api/products/${pid}`,{
             method: "DELETE",
         });
         const data = await res.json();
@@ -44,7 +44,7 @@ export const useProductStore = create((set) => ({
 
 
     updateProduct: async(pid, updatedProduct) =>{
-        const res = await fetch(`${BASE_URL}/api/products${pid}`, {
+        const res = await fetch(`${BASE_URL}/api/products/${pid}`, {
             method: "PUT",
             headers: {
                 "Content-Type" : 'application/json',
